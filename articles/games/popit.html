@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <head>,
+        <meta http-equiv="Content-Type" content="text/html; charset="UTF-8">
+        <title>Blackjack</title>
+        <link rel="stylesheet" href="../../tufte.min.css"/>
+    </head>
+    <body>
+        <h1>Pop It</h1>
+        <p class="byline">May 26, 2021 &ndash; Arman Boyacı</p>
+        <section>
+<p>
+In two players “Pop It!” game players take turns 
+to choose a row and pop as many bubbles as 
+they want in that row. 
+The player who pops the last bubble loses the game. 
+What is the optimal strategy for this game?
+</p>
+<p>
+Assume that all bubbles in all rows are popped, except one row. If that row contains more than one unpopped bubbles then the player who plays in this turn wins: pop all the bubbles except one.
+</p>
+<p>
+Pop-it board is (usually) symmetrical. 
+Each row has a twin, another row with the same number of bubbles. 
+Therefore we can separate the board into two symmetrical boards G1, G2. 
+In this case, the second player has an optimal play, 
+it is ensured that the last move is by the opponent. 
+</p>
+<p>
+The first player makes a move in say G1, 
+the second player makes a mirror move in G2. 
+Except that if the first player leaves a row 
+with one bubble then the second player will make sure that 
+there is an odd number of rows with exactly one bubble.
+</p>
+<p>
+Consider the case that all rows have one bubble each. 
+Players are forced to alternate popping one bubble 
+until the game ends. 
+So if there is an odd number of rows then 
+the first player takes the last.
+</p>
+<p>
+A board could have an odd number of rows. 
+In this scenario, the first player clears one of the rows completely. 
+This move makes the remaining board symmetrical. 
+By repeating our previous arguments, 
+we can see that the first player will win the game. 
+</p>
+        </section>
+    </body>
+</html>

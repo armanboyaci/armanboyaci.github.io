@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+    <head>,
+        <meta http-equiv="Content-Type" content="text/html; charset="UTF-8">
+        <title>Blackjack</title>
+        <link rel="stylesheet" href="../../tufte.min.css"/>
+    </head>
+    <body>
+        <h1>Guess Who?</h1>
+        <p class="byline">May 26, 2021 &ndash; Arman Boyacı</p>
+        <section>
+<p>
+(Hasbro’s) Guess Who? is a “search race” game between two players. 
+Each player selects a character from a pool of 24 cards. 
+The objective is to be the first to find the opponent's character 
+by asking in turn YES/NO questions about the (physical) attributes of the character.
+</p>
+<p>
+In this game, each question can be seen as a set membership question: 
+“Does the target belong to the set S?” 
+We can construct the following binary matrix 
+between characters and possible questions (sets).
+</p>
+
+<p>
+The state of the game can be represented as a pair of two positive numbers, 
+respectively the number of candidates for two players.
+
+(n_0, m_0)
+(n_1, m_0)
+(n_1, m_1)
+…
+</p>
+<p>
+At each step the number of candidates decreases at least by one.
+n_0 > n_1 > n_2 > n_3 > …
+m_0 > m_1 > m_2 > m_3 > ...
+A player wins the game when she remains with a single candidate, that must be the opponent's character. E.g. Player 1 wins if the game arrives at state (1, m_k>1).
+At each step we ask a question which corresponds to a set S. We eliminate either |S| or n_i - |S| candidates.
+</p>
+        </section>
+        <section>
+<p>
+If we consider the “name” attribute of the characters, 
+we can always find a question with |S|=n/2, |S|=n/3 
+or in general |S|=n/p. e.g. 
+Does your character’s name start with a letter that 
+comes before the letter ‘F’?
+What is the expected number of steps to find the target?
+For |S| = n/2, in the worst-case (resp. best-case) scenario 
+we can find the target in 5 (resp. 4) questions. 
+Expected number is 4.6
+</p>
+
+<p>
+For |S| = n/3, in the worst-case (resp. best-case) scenario 
+we can find the target in 6 (resp. 3) questions. 
+Expected number is 4.8
+</p>
+
+<p>
+The rational gameplay strategy is to ask 
+a "halving" question. 
+But if the opponent is ahead of us then 
+we should ask a "riskier" question 
+with a better best-case value.
+</p>
+
+        </section>
+</html>

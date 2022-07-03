@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+    <head>,
+        <meta http-equiv="Content-Type" content="text/html; charset="UTF-8">
+        <title>Blackjack</title>
+        <link rel="stylesheet" href="../../tufte.min.css"/>
+    </head>
+    <body>
+        <h1>Blackjack</h1>
+        <p class="byline">May 26, 2021 &ndash; Arman Boyacı</p>
+        <section>
+<p>
+In the blackjack game, the dealer follows a fixed 
+and known strategy: “Hit until 17”. 
+At the end, she can have 17, 18, 19, 20, 21 
+or she is busted (she has 22 or more) 
+with the following probabilities given her first card.
+</p>
+
+<p>
+    These probabilities can be computed 
+    by multiplying the following transition matrix 
+    by itself several times. 
+    But how many times? 
+    With each multiplication we increase the 
+    number of cards in the dealer's hand. 
+    5 times should be enough to land one of the 
+    absorbing states.
+</p>
+
+<p>
+    Here, we assume that we sample cards with replacement. 
+    This is not the reality 
+    because cards in a play leave the game 
+    until there are not enough cards, 
+    then we reshuffle everything. 
+    But not a bad assumption 
+    if there are a large number of decks 
+    (8 in most casinos). 
+    More work is needed to compute exact probabilities.
+</p>
+</section>
+<section>
+<p>
+    You may think that the casino (aka the house) 
+    makes all the necessary calculations 
+    and selects the best strategy. 
+    Therefore you should mimic the dealer. 
+    But this is a bad idea. 
+    On average, you lose $5.6 for each $100 bet. 
+    You can verify this by running the following code.
+</p>
+
+<p>
+    But why? If the reward mechanism were symmetrical 
+    for both the player and the dealer 
+    then their expected rewards should be the same, zero. 
+    But this is not the case in casinos.
+</p>
+</section>
+<section>
+    <p>
+        Let’s analyse the impact of two changes breaking 
+        the symmetry in the casino’s reward mechanism.
+    </p>
+    
+    <p>
+        1) The player plays first and if she is busted, 
+        she loses her bet. 
+        Suppose in the same round the dealer is also busted, 
+        but the player is not getting her money back. 
+        That means if both the player 
+        and the dealer are busted, 
+        the player loses money, 
+        which can be considered unfair.
+    </p>
+    
+<p>
+(Assuming the player uses the dealer’s strategy) 
+The probability of both the player and the dealer 
+being busted is ~7.9%. On average, 
+the player loses ~$7.9 per $100 bet.
+</p>
+
+</section>
+
+
+<section>
+<p>
+2) The house pays 3/2 of the bet 
+when the player has a natural (an ace and a ten). 
+This is a promotion to the player 
+because the player does not lose 3/2 of her bet 
+when the dealer gets a natural. 
+</p>
+<p>
+The probability for a player to get a natural 
+(and not the dealer) is ~4.6%. 
+On average, the player gains an extra 
+(compared to the symmetrical reward system) ~$2.3 per $100 bet.
+</p>
+</section>
+
+<section>
+<p>
+Of course we can do better than mimicking the dealer. 
+We can calculate the optimal stopping point, 
+depending on the dealer's visible card. 
+Plus, we can optimally decide on doubling and splitting. 
+However, all of these are not enough to make money in the long run.
+</p>
+
+<p>
+Anyway, how do we calculate optimal stopping points? 
+For each state (our hand + dealer’s card), 
+we calculate the expected value of standing. 
+Then we compare it with the expected value of hitting.    
+</p>
+
+<p>
+It is easy to see that if the total hand is < 12 hitting 
+will improve the expected value, since there is no risk of busting. 
+However, at some point standing makes more sense. 
+This point depends on the dealer's card.
+</p>
+
+<p>
+How do we calculate these expected values? 
+Below you see the expected values of standing.
+</p>
+
+<p>
+And the expected values of hitting.    
+</p>
+
+<p>
+The formulas to calculate the expected values.
+</p>
+
+</section>
+       
+    </body>
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+    <head>,
+        <meta http-equiv="Content-Type" content="text/html; charset="UTF-8">
+        <title>Tic-Tac-Toe</title>
+        <link rel="stylesheet" href="../../tufte.min.css"/>
+    </head>
+    <body>
+<h1>Tic-Tac-Toe</h1>
+<p class="byline">May 26, 2021 &ndash; Arman Boyacı</p>
+<article>
+<section>
+<p>A tic-tac-toe game has 9 cells. 
+   “X” plays one of them as a first move 
+   and “O” plays one among the remaining 8 cells. 
+   In total there are 72 possible first-moves. 
+   But most of them are equivalent under rotations 
+   and reflections. 
+   There are 12 “different” first-moves.
+</p>
+<p>W.l.o.g. X can play the corner (11), 
+    the edge (12) or the center (22). 
+    Playing corners {11, 13, 31, 33} are equivalent 
+    using rotations, similarly edges {12, 21, 23, 32}.
+</p>
+
+<p>
+    Assume X plays the center. 
+    Then O can play an edge {(22, 12), (22, 21), (22, 32), (22, 23)} 
+    or a corner {(22, 11), (22, 31), (22, 33), (22, 13)}, 
+    but those are equivalence groups using rotations. 
+    Therefore w.l.o.g. we can assume the possible first-moves are (22, 12) and (22, 11).
+</p>
+
+<p>
+    If X plays the corner, O can play 5 different moves: 
+    an incident edge {(11, 12), (11, 21)} 
+    an opposite edge {(11, 32), (11, 23)}, 
+    an incident corner {(11, 31), (11, 13)}, 
+    the center (11, 22) or the opposite corner (11, 33). 
+</p>
+
+<p>
+    By reflection on the diagonal containing 11, these are equivalence groups.
+    Similarly if X plays the edge, there are again 5 different moves.
+    In total, there are 12 different first-moves.
+</p>
+            </section>
+
+<section>
+<p>
+    In the tic-tac-toe game, there are 12 first-move patterns. 
+    In 7 of them, (X) always wins by applying a sequence of moves. 
+</p>
+
+<p>
+    The second player (O) cannot prevent the defeat 
+    because her second-move is enforced 
+    (she should “block”) and her third-move is irrelevant 
+    because (X) has a “fork”.
+</p>
+
+<p>
+    In the rest of 5 first-move patterns, 
+    (X) can always lead the game to a tie. 
+    How? (X) enforces a position for which 
+    (O) cannot have a fork.
+</p>
+</section>
+
+<section>
+<p>
+        Finally, we need to convince ourselves that X cannot win in these 5 first-move patterns. We verify that X cannot have a fork.
+
+There are three types of forks: 
+<ul>
+    <li>Type (I): 1 corner + 1 edge + 1 center</li>
+    <li>Type (II): 2 corners + center, </li>
+    <li>Type (III): 3 corners</li>
+</ul>
+</p>
+<p>
+    Consider two patterns in which O plays center. 
+    None of Type (I), (II) and Type (III) are possible 
+    since the center is occupied.
+</p>
+<p>
+    When X plays center, O plays corner, 
+    Type (III) is not possible by definition. 
+    Type (II) is not possible since a corner is occupied. ,
+    X cannot have a fork of Type (I) 
+    because in all cases the third move of X is enforced 
+    and that position is not a fork.
+</p>
+
+<p>
+    When X plays edge and O plays incident corner, 
+    the only possible fork type is (I) since 
+    it contains an edge. But we can see that it is 
+    not the case by using the previous argument.
+</p>
+
+<p>
+    When X plays edge and O plays opposite Edge, 
+    Type (I) is again not possible because the 
+    opposite edge should be clear.
+</p>
+
+</section>
+
+        </article>
+    </body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <meta name="author" content="Arman Boyacı">
+  <meta name="dcterms.date" content="2020-05-26">
+  <title>Fund Performance</title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <link rel="stylesheet" href="../pandoc.css">
+  <link rel="stylesheet" href="../../tufte.min.css">
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<article>
+<header>
+<h1 class="title">Fund Performance</h1>
+<p class="subtitle">How to evaluate the peformance of a fund manager?</p>
+<p class="byline">May 26, 2020 &ndash; Arman Boyacı</p>
+</header>
+<section>
+<p>Investors are desperately looking for talented fund managers The best manager may not be the one at the of top of a return-sorted table, but measuring performance is much more complex. In this short-guide, we present the state-of-the-art approach and talk about some of the practical issues.</p>
+</section>
+<section id="why-the-manager-of-a-fund-with-the-highest-return-may-not-be-the-most-talented-one" class="level3">
+<h3>Why the manager of a fund with the highest-return may not be the most talented one?</h3>
+<figure class="fullwidth">
+<table>
+<thead>
+<tr class="header">
+<th></th>
+<th>2015</th>
+<th>2016</th>
+<th>2017</th>
+<th>2018</th>
+<th>2019</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Fund A</td>
+<td>-15%</td>
+<td>15%</td>
+<td>60%</td>
+<td>-5%</td>
+<td>45%</td>
+</tr>
+<tr class="even">
+<td>Fund B</td>
+<td>9%</td>
+<td>10%</td>
+<td>12%</td>
+<td>18%</td>
+<td>21%</td>
+</tr>
+<tr class="odd">
+<td>Inflation</td>
+<td>8%</td>
+<td>8%</td>
+<td>12%</td>
+<td>20%</td>
+<td>12%</td>
+</tr>
+</tbody>
+</table>
+</figure>
+<p>The modern way of thinking is: the performance of a fund manager can be explained by risk premiums <span><label for="sn-1" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-1" class="margin-toggle"/><span class="sidenote">The extra return for taking a risk is called a premium.<br />
+<br />
+</span></span> by professional skills and by luck. In principal, the fund manager should only be compensated according to her professional skills. <span><label for="sn-2" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-2" class="margin-toggle"/><span class="sidenote">We should have access to cheap rule-based (passive) funds exposed to risk premiums.<br />
+<br />
+</span></span></p>
+</section>
+<section id="risk-premiums" class="level2">
+<h2>Risk Premiums</h2>
+<p>From the investment theory, we expect (on the long run) higher return if we take higher risk. For example, investing in stocks is riskier than investing in bonds. When we buy a bond, we know exactly the amount of money we will receive if we keep until the end of the contract. <span><label for="sn-3" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-3" class="margin-toggle"/><span class="sidenote">This does not mean that bonds are without risk. If for example, during this period the inflation rises, you may end up with a negative real return. Or even worse the company/country may announce a default.<br />
+<br />
+</span></span> The return of a stock however depends on future dividend payments and the future market price of that particular share, both are unknown today. We observe (as predicted in the theory) that on-average the long-run return of stocks is higher compared to bonds. Therefore, it is not fair to compare a stock fund manager with a bond fund manager.</p>
+<figure>
+<img src="images/small_cap_vs_large_cap.png">
+<figcaption>
+Log-returns of stocks and bonds on the long-run. Source: Fidelity
+</figcaption>
+</figure>
+</section>
+</article>
+</body>
+</html>
