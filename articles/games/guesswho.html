@@ -4,6 +4,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
         <title>Guess Who</title>
+        <link rel="stylesheet" href="../pandoc.css">
         <link rel="stylesheet" href="../../tufte.min.css"/>
     </head>
     <body>
@@ -28,26 +29,29 @@ by asking in turn YES/NO questions about the (physical) attributes of the charac
     with a better best-case value.
 </p>
 
-<table style="border-top: 2px solid #111;
-border-bottom: 2px solid #111;
-font-size: 1.1rem;">
-    </thead>
-        <tr class="header">
-           <th></th><th>Best Case</th><th>Average Case</th><th>Worst Case</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr class="odd">
-            <th>n/2</th><th>4</th><th>4.6</th><th>5</th>
-        </tr>
-        <tr class="even">
-            <th>n/3</th><th>3</th><th>4.8</th><th>6</th>
-        </tr>
-        <tr class="odd">
-            <th>1</th><th>1</th><th>11.5</th><th>23</th>
-        </tr>
-    </tbody>
-</table>
+<figure>
+    <table >
+        </thead>
+            <tr class="header">
+               <th></th><th>Average Case</th><th>Best Case</th><th>Worst Case</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="odd">
+                <td>n/2</td><td>4.6</td><td>4</td><td>5</td>
+            </tr>
+            <tr class="even">
+                <td>n/3</td><td>4.8</td><td>3</td><td>6</td>
+            </tr>
+            <tr class="odd">
+                <td>1</td><td>11.5</td><td>1</td><td>23</td>
+            </tr>
+        </tbody>
+    </table>
+</figure>
+
+
+
 <!--<p>
 In this game, each question can be seen as a set membership question: 
 “Does the target belong to the set S?” 
