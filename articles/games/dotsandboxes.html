@@ -13,29 +13,49 @@
         <p class="byline">May 26, 2021 &ndash; Arman Boyacı</p>
     </header>
         <section>
-<p>“Dots and Boxes” is a two-player paper&pencil game. The analysis of an optimal play is not trivial even for a simple case like 2x2=4 boxes, see stackoverflow. I want to present my analysis which (I hope) is slightly easier to understand.
+<p>“Dots and Boxes” is a two-player paper&pencil game. 
+    The analysis of an optimal play is not trivial even for a simple case like 2x2=4 boxes, 
+    see <a href="https://puzzling.stackexchange.com/questions/1728/optimal-play-for-2-by-2-dots-and-boxes">this</a> stackoverflow question. 
+    I want to present my analysis which (I hope) is slightly easier to understand.
 </p>
 <p>
-    Assume that players play only “safe” moves (the next player cannot make a box). At some point, there will be no more “safe” moves to play. And the result of the game can be determined by looking at the structure of the “dual” graph (red in the image below).  
+    Assume that players play only “safe” moves (the next player cannot make a box). 
+    At some point, there will be no more “safe” moves to play. 
+    And the result of the game can be determined by looking at the structure of the “dual” graph (red in the image below).  
 </p>
+<figure>
+    <img src="dots_and_boxes_dual_graph.png">
+</figure>
 <p>
     To win the game the first player needs to avoid C_4, 4P_1 and 2P_2. She uses the following strategy. She starts with an external edge and this move crosses the 4P_1. The second player could play an internal edge.
 </p>
+<figure>
+    <img src="dots_and_boxes_internal_edge.png">
+</figure>
 <p>
     In that case, the first players play a “safe” internal edge. That move ensures a P_1, we cross C_4 and 2P_2. Therefore, she wins the game by playing “safe”.
 </p>
 <p>
     Assume the second player plays an external edge. The first player plays the adjacent external edge and then plays the “safe” internal edge at the opposite side. This move ensures the P_4 structure. She plays “safe” and wins.
 </p>
+<figure>
+    <img src="dots_and_boxes_external_edge.png">
+</figure>
 <p>
     The second player can avoid this position by making symmetrical moves. In that position, the first player starts with a “safe” move (plays an external edge). The second player plays “safe” as well, otherwise she loses the game.
 </p>
 <p>
     We end up with one of the following positions:
 </p>
+<figure>
+    <img src="dots_and_boxes_symmetry.png">
+</figure>
 <p>
     At this point the first player makes a sacrifice (plays an internal edge) and wins the game.
 </p>
+<figure>
+    <img src="dots_and_boxes_sacrifice.png" width="30%">
+</figure>
         </section>
     </article>
     </body>
