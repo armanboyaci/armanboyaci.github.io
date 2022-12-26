@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+        <title>Blackjack</title>
+        <link rel="stylesheet" href="../../tufte.min.css"/>
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    </head>
+    <body>
+        <article>
+            <header>
+        <h1 class="title">Sudoku</h1>
+        <p class="byline">Dec 26, 2022 &ndash; Arman Boyacı</p>
+    </header>
+        <section>
+            <p> 
+                The standart Sudoku puzzle consists of 81 cells 
+                and the objective is to fill all of them such 
+                that all rows, columns and boxes contain digits 1 to 9. 
+                Let $x_sd$ be an indicator variable for the cell $s$ and the digit $d$.
+                $$\sum_{s \in u} x_{sd} = 1 \quad \forall u \ \forall d$$
+            </p>
+
+            <p>
+                Since the number of digits and the number of cells of a unit coincides 
+                we can define the following (redundent?) constraints.
+                $$\sum_d x_{sd} = 1 \quad \forall s$$
+            </p>
+
+            <p>
+                When a digit is assigned to a cell then 
+                we can set zero that digit in neigbor cells. 
+                $$x_{sd}=1 \Rightarrow x_{s'd}=0 \quad \forall s'\in N(s)$$
+            </p>
+
+            <p>
+                If we can find two digits elligible to only two cells of a unit
+                then we can safely remove the other possible digits from these cells.
+                (Hall's theorem? pigoenhole principle?)
+
+                $$
+                x_{s_1 d_1} + x_{s_1 d_2} + x_{s_2 d_1} + x_{s_2 d_2} = 2 \quad s_1, s_2 \in u 
+                \\
+                \Rightarrow x_{s_1d} = 0, x_{s_2d}=0 \forall d \notin (d_1, d_2)$$
+            </p>
+
+            <p>
+                If possible cells in a box aligns to a row (resp. column) then 
+                we can remove that digit the rest of the row (resp. column).
+
+                $$ x_{s_1d} + x_{s_2d} = 1 \Rightarrow x_{s'd} = 0 \quad \forall s' \in N(s_1, s_2) $$
+            </p>
+
+            <p>
+                If for cell, all the digits are eliminated except one 
+                then we can assign that digit to that cell.
+
+                $$ \exists d,s \quad x_{sd'}=0 \quad \forall d' \neq d \Rightarrow x_{sd} = 1$$
+            </p>
+
+            <p>
+                If in a unit there is only one cell remained for a digit 
+                then we can assign that digit to that cell.
+
+                $$\exists u,d,s \sum_{s'\in u, \ s' \neq s} x_{s'd} = 0 \Rightarrow x_{sd} = 1$$
+            </p>
+
+        </section>
+
+        </article>
+    </body>
+</html>
