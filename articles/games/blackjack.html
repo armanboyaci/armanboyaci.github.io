@@ -49,7 +49,7 @@
 <section>
 <p>
     The expected outcome of a Blackjack play can be calculated as follows 
-    <span class="marginnote">Here we assume that the two probabilities are independent from each other, which is not exactyl true but not a bad approximation.</span>
+    <span class="marginnote">Here we assume that the two probabilities are independent from each other, which is not exactly true but not a bad approximation.</span>
     $$ E_{i,k} = X_{j,l} P_{i,j} P'_{k,l} $$
     <ul>
         <li> \(X_{j,l} \) is the outcome matrix given that finally your hand is \( j \) and dealer's hand is \(l \). </li>
@@ -60,21 +60,23 @@
 
 <p>
     Here is the outcome matrix \(X_{j,l} \) for <i>unit</i> bets.
-    <figure>
-        <img src="blackjack_outcome.svg" />
-    </figure>
+</p>
+<figure>
+    <img src="blackjack_outcome.svg" />
+</figure>
 
-    Note that the outcome matrix is mostly symmetrical. There are two (important) exceptions: 
+<p>Note that the outcome matrix is mostly symmetrical. There are two (important) exceptions: 
     <ol>
         <li>If a player's hand is 21 in the first two cards it is called <i>natural</i> or <i>blackjack</i> and she immediately wins (unless dealer reveals also a natural). And the house pays 3/2 of her bets.
         <li>If a player is busted she immediately loses her bet (even if dealer is also busted).</li>
     </ol>
+</p>
 
-    The first (resp. second) expception is in favor of the player (resp. the house). 
+<p>
+    The first (resp. second) exception is in the favor of the player (resp. the house). 
     But their probabilities are significantly different. 
     Player gets a natural with probability \(1/20\). 
     On the other hand both player and dealer are busted in the same play with probability is \( ? \)
-
 </p>
 </section>
 
