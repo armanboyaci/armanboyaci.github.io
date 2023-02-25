@@ -15,6 +15,7 @@
     </header>
 <section>
 
+    <!--
     <p> In Blackjack, the game have some differences for a player and for the dealer. 
         <ol>
             <li>
@@ -41,25 +42,39 @@
 <figure>
     <img src="blackjack-house-edge.png">
 </figure>
-
-
+   
 </section>
+ -->
 
 <section>
 <p>
+    The expected outcome of a Blackjack play can be calculated as follows 
+    <span class="marginnote">Here we assume that the two probabilities are independent from each other, which is not exactyl true but not a bad approximation.</span>
     $$ E_{i,k} = X_{j,l} P_{i,j} P'_{k,l} $$
     <ul>
         <li> \(X_{j,l} \) is the outcome matrix given that finally your hand is \( j \) and dealer's hand is \(l \). </li>
         <li> \(P_{i,j}  \) is the probability that your hand will be \(j\) given that your current hand is \(i\). </li>
-        <li> \(P_{k,l}  \) is the probability that dealer's hand will be \(l\) given that your dealer's open card is \(k\). </li>
+        <li> \(P'_{k,l}  \) is the probability that dealer's hand will be \(l\) given that your dealer's open card is \(k\). </li>
     </ul>
 </p>
 
 <p>
+    Here is the outcome matrix \(X_{j,l} \) for <i>unit</i> bets.
     <figure>
-        <caption>The outcome matrix \(X_{j,l} \) for a unit bet.</caption>
         <img src="blackjack_outcome.svg" />
     </figure>
+
+    Note that the outcome matrix is mostly symmetrical. There are two (important) exceptions: 
+    <ol>
+        <li>If a player's hand is 21 in the first two cards it is called <i>natural</i> or <i>blackjack</i> and she immediately wins (unless dealer reveals also a natural). And the house pays 3/2 of her bets.
+        <li>If a player is busted she immediately loses her bet (even if dealer is also busted).</li>
+    </ol>
+
+    The first (resp. second) expception is in favor of the player (resp. the house). 
+    But their probabilities are significantly different. 
+    Player gets a natural with probability \(1/20\). 
+    On the other hand both player and dealer are busted in the same play with probability is \( ? \)
+
 </p>
 </section>
 
