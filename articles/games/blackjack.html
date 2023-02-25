@@ -49,7 +49,12 @@
 <section>
 <p>
     The expected outcome of a Blackjack play can be calculated as follows 
-    <span class="marginnote">Here we assume that the two probabilities are independent from each other, which is not exactly true but not a bad approximation.</span>
+    <label for="mn-demo" class="margin-toggle">&#8853;</label>
+    <input type="checkbox" id="mn-demo" class="margin-toggle"/>
+    <span class="marginnote">
+        Here we assume that the two probabilities are independent from each other, which is not exactly true but not a bad approximation.
+    </span>
+    
     $$ E_{i,k} = X_{j,l} P_{i,j} P'_{k,l} $$
     <ul>
         <li> \(X_{j,l} \) is the outcome matrix given that finally your hand is \( j \) and dealer's hand is \(l \). </li>
