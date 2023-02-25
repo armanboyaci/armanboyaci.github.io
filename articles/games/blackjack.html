@@ -5,6 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
         <title>Blackjack</title>
         <link rel="stylesheet" href="../../tufte.min.css"/>
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     </head>
     <body>
         <article>
@@ -42,6 +43,24 @@
 </figure>
 
 
+</section>
+
+<section>
+<p>
+    $$ E_{i,k} = X_{j,l} P_{i,j} P'_{k,l} $$
+    <ul>
+        <li> \(X_{j,l} \) is the outcome matrix given that finally your hand is \( j \) and dealer's hand is \(l \). </li>
+        <li> \(P_{i,j}  \) is the probability that your hand will be \(j\) given that your current hand is \(i\). </li>
+        <li> \(P_{k,l}  \) is the probability that dealer's hand will be \(l\) given that your dealer's open card is \(k\). </li>
+    </ul>
+</p>
+
+<p>
+    <figure>
+        <caption>The outcome matrix \(X_{j,l} \) for a unit bet.</caption>
+        <img src="blackjack_outcome.svg" />
+    </figure>
+</p>
 </section>
 
 
