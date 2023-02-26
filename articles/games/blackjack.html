@@ -63,8 +63,11 @@
     </ul>
 </p>
 
+</section>
+
+<section>
 <p>
-    Here is the outcome matrix \(X_{j,l} \) for <i>unit</i> bets.
+    Here is the outcome matrix \(X_{j,l} \) for a <i>unit</i> bet.
 </p>
 <figure>
     <img src="blackjack_outcome.svg" />
@@ -80,11 +83,41 @@
 <p>
     The first (resp. second) exception is in the favor of the player (resp. the house). 
     But their probabilities are significantly different. 
-    Player gets a natural with probability \(1/20\). 
-    On the other hand both player and dealer are busted in the same play with probability is \( ? \)
+    Player gets a natural with probability \(\sim \frac{1}{21}\). 
+    On the other hand both player and dealer are busted in the same play with probability is \( \sim \frac{1}{12} \)
+    <label for="mn-demo" class="margin-toggle">&#8853;</label>
+    <input type="checkbox" id="mn-demo" class="margin-toggle"/>
+    <span class="marginnote">
+        This is not easy number to calculate because it depends on the player's strategy. This number is calculated assuming that the player follows exactly the dealer's strategy.
+    </span>
+    So the house gets an edge \( +1 \times \frac{1}{12} - \frac{1}{2} \frac{1}{21} \sim \frac{1}{16} \)
 </p>
 </section>
 
+<section>
+    <p>
+        \(P_{i,j}  \) mainly determined by the player's decision. 
+        In the simple case, if the player chooses to <em>stay</em> then \(P_{i,i} = 1 \) and \(P_{i,j} = 0 \; \forall j \neq i \).
+        Otherwise she chooses to <em>hit</em> and gets a new card. 
+        The probability for allmost all card values \( 2 \dots 9 \) is \( \frac{4}{52} = \frac{1}{13} \).
+        There are two exceptions for the value \(10\) the probability is  \( \frac{4}{13} \) 
+        since there are 4 kinds of cards having card value \(10\) which are: 10, J, Q and K.
+        The value of a A card is either \(1\) or \(11\) depending on the player's hand.
+        The priority is for the value \(11\) but if the player would be busted if we count A as a \(11\) then we count as a \(1\).
+        So for \( i \leq 10 \) we count A as \(11\) otherwise as \(1\).
+    </p>
+</section>
+
+<section>
+    <p>
+        The dealer follows a fixed strategy, <em>hit until \(17\)</em>. 
+        We can model this with a markov chain.
+        We construct 1-step transition probability matrix similar to the probability matrix that we construct for \(P_{i,j}  \). 
+        The only difference is that the states \(\geq 17\) are absorbing states, 
+        which means when the dealer reaches at that state will state at that state.
+        Then we calculate n-step transition probabilities by multiplying 1-step transition probability matrix n times.
+    </p>
+</section>
 
 
       <!--  <section>
