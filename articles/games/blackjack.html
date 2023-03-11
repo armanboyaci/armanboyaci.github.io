@@ -14,54 +14,20 @@
         <p class="byline">May 26, 2021 &ndash; Arman Boyacı</p>
     </header>
 
-    <!--
-    <section>
-
-
-    <p> In Blackjack, the game have some differences for a player and for the dealer. 
-        <ol>
-            <li>
-                The player plays first and if she is busted, she loses her bet. 
-                Suppose in the same round the dealer is also busted, but the player is not getting her money back. 
-                That means if both the player and the dealer are busted, 
-                the player loses money, which can be considered unfair for the player.
-            </li>
-            <li>
-                The house pays 3/2 of the bet when the player has a natural (an ace and a ten). 
-                This is a promotion to the player because the player does not lose 3/2 of her bet when the dealer gets a natural.
-            </li>
-            <li>
-                The dealer follows a fixed strategy, hit until 17 and face one of the starting cards in her hand. 
-                The player could make the optimal decisions for stopping, doubling and splitting according to this open card.
-            </li>
-        </ol>
-    </p>
-
-    <p>
-        The house has an edge of $0.68 per $100 bet.
-    </p>
-
-<figure>
-    <img src="blackjack-house-edge.png">
-</figure>
-   
-</section>
- -->
-
 <section>
 <p>
     The expected outcome of a Blackjack play can be calculated as follows 
     <label for="mn-1" class="margin-toggle">&#8853;</label>
     <input type="checkbox" id="mn-1" class="margin-toggle"/>
     <span class="marginnote">
-        Here we assume that the two probabilities are independent from each other, which is not exactly true but not a bad approximation.
+        Here we assume that the two probabilities are independent from each other, not exactly correct but a good approximation for large number of decks.
     </span>
     
     $$ E_{i,k} = X_{j,l} P_{i,j} P'_{k,l} $$
     <ul>
-        <li> \(X_{j,l} \) is the outcome matrix given that finally your hand is \( j \) and dealer's hand is \(l \). </li>
-        <li> \(P_{i,j}  \) is the probability that your hand will be \(j\) given that your current hand is \(i\). </li>
-        <li> \(P'_{k,l}  \) is the probability that dealer's hand will be \(l\) given that your dealer's open card is \(k\). </li>
+        <li> \(X_{j,l} \): the outcome value when your hand is \(j \) and dealer’s final hand is \(l \)</li>
+        <li> \(P_{i,j}  \) the probability that your next hand will \(j \) given that your current hand is \(i \)</li>
+        <li> \(P'_{k,l}  \) the probability that dealer's final hand will be \(l\) given that your dealer's open card value is \(k\). </li>
     </ul>
 </p>
 
@@ -84,13 +50,13 @@
 
 <p>
     The first (resp. second) exception is in the favor of the player (resp. the house). 
-    But their probabilities are significantly different. 
+    But the probability values of these two events are quite different. 
     Player gets a natural with probability \(\sim \frac{1}{21}\). 
     On the other hand both player and dealer are busted in the same play with probability is \( \sim \frac{1}{12} \)
     <label for="mn-2" class="margin-toggle">&#8853;</label>
     <input type="checkbox" id="mn-2" class="margin-toggle"/>
     <span class="marginnote">
-        This is not easy number to calculate because it depends on the player's strategy. This number is calculated assuming that the player follows exactly the dealer's strategy.
+        It is not easy to calculate this probability. Here we assume that the player follows exactly the dealer’s strategy (hit until 17).
     </span>
     So the house gets an edge \( +1 \times \frac{1}{12} - \frac{1}{2} \frac{1}{21} \sim \frac{1}{16} \)
 </p>
@@ -98,8 +64,8 @@
 
 <section>
     <p>
-        \(P_{i,j}  \) mainly determined by the player's decision. 
-        In the simple case, if the player chooses to <em>stay</em> then \(P_{i,i} = 1 \) and \(P_{i,j} = 0 \; \forall j \neq i \).
+        \(P_{i,j}  \) is determined mainly by the player's move. 
+        In the trivial case, if the player <em>stays</em> then \(P_{i,i} = 1 \) and \(P_{i,j} = 0 \; \forall j \neq i \).
         Otherwise she chooses to <em>hit</em> and gets a new card. 
         The probability for allmost all card values \( 2 \dots 9 \) is \( \frac{4}{52} = \frac{1}{13} \).
         There are two exceptions for the value \(10\) the probability is  \( \frac{4}{13} \) 
