@@ -11,63 +11,48 @@
         <article>
             <header>
         <h1 class="title">Sudoku</h1>
-        <p class="byline">Dec 26, 2022 &ndash; Arman Boyacı</p>
+        <p class="byline">May 27, 2023 &ndash; Arman Boyacı</p>
     </header>
         <section>
             <p> 
-                Sudoku puzzle consists of 81 squares (some of them are prefilled)
-                and the objective is to fill all of them such 
-                that all rows, columns and boxes (groups of 3x3 squares) contain digits 1 to 9. 
-                Let \( x_{sd} \) be an indicator variable for the square \( s \) and the digit \(d \).
-                $$\sum_{s \in u} x_{sd} = 1 \quad \forall u \ \forall d$$
+                In Sudoku puzzle, you are given a partially filled 9x9 grid,
+                and the objective is to complete that grid 
+                such that each column, each row, and each box 
+                <span class="sidenote">(3x3 subgrids that compose the whole grid)</span> 
+                contain all of the digits from 1 to 9.
             </p>
 
             <p>
-                Since the number of digits and the number of squares in a unit is the same 
-                we can define the following (redundent?) constraints.
-                $$\sum_d x_{sd} = 1 \quad \forall s$$
+                There are many Sudoku solving techniques, 
+                see <a href="https://www.sudokuwiki.org/Getting_Started">sudokuwiki.org</a>, 
+                <a href="https://sudoku.com/sudoku-rules/">sudoku.com</a>,
+                <a href="https://masteringsudoku.com/sudoku-solving-techniques/">masteringsudoku.com</a>,
+                
+                Here we will express some of the simple techniques 
+                (e.g. <a href="https://www.sudokuwiki.org/Naked_Candidates">Naked Candidates</a>, 
+                <a href="https://www.sudokuwiki.org/Hidden_Candidates">Hidden Candidates</a>) 
+                using graph theory terminology.
             </p>
-
+        </section>
+        <section>
             <p>
-                When a digit is assigned to a square then 
-                we can set zero that digit in neigbor squares. 
-                $$x_{sd}=1 \Rightarrow x_{s'd}=0 \quad \forall s'\in N(s)$$
+                For each unit (rows, columns, boxes) 
+                we can construct a bipartite graph having edges between squares and digits. 
+                An entry which is an assignment of a digit to a square can be seen as a matching in this graph (why?).
+                Since all digits and squares should be matched, we could say that we are looking for a <i>perfect</i> matching.
             </p>
 
-            <p>
-                If we can find two digits elligible to only two squares of a unit
-                then we can safely remove the other possible digits from these squares.
-                (Hall's theorem? pigoenhole principle?)
+            <h3>Last Remaining Cell in a Unit</h3>
+            <p><img src="last_cell_for_a_digit.svg"></p>
 
-                $$
-                \begin{align}
-                \exists s_1, s_2 \in u, \ \exists d_1, d_2 \quad x_{s_1 d_1} + x_{s_1 d_2} + x_{s_2 d_1} + x_{s_2 d_2} = 2 \quad  
-                \\
-                \Rightarrow x_{s_1d} = 0, x_{s_2d}=0 \quad \forall d \notin (d_1, d_2)
-                \end{align}
-                $$
-            </p>
+            <h3>Last Possible Digit for a Square</h3>
+            <p><img src="last_possible_digit.svg"></p>
 
-            <p>
-                If possible squares in a box aligns to a row (resp. column) then 
-                we can remove that digit the rest of the row (resp. column).
+            <h3>Naked Candidates</h3>
+            <p><img src="naked_candidates.svg"></p>
 
-                $$ x_{s_1d} + x_{s_2d} = 1 \Rightarrow x_{s'd} = 0 \quad \forall s' \in N(s_1, s_2) $$
-            </p>
-
-            <p>
-                If for a square, all the digits are eliminated except one 
-                then we can assign that digit to that square.
-
-                $$ \exists d,s \quad x_{sd'}=0 \quad \forall d' \neq d \Rightarrow x_{sd} = 1$$
-            </p>
-
-            <p>
-                If in a unit there is only one elligible square remained for a digit 
-                then we can assign that digit to that square.
-
-                $$\exists u,d,s \sum_{s'\in u, \ s' \neq s} x_{s'd} = 0 \Rightarrow x_{sd} = 1$$
-            </p>
+            <h3>Hidden Candidates</h3>
+            <p><img src="hidden_candidates.svg"></p>
 
         </section>
 
