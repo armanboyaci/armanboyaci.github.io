@@ -6,12 +6,13 @@
         <title>Guess Who</title>
         <link rel="stylesheet" href="../pandoc.css">
         <link rel="stylesheet" href="../../tufte.min.css"/>
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     </head>
     <body>
         <article>
             <header>
         <h1 class="title">Guess Who?</h1>
-        <p class="byline">May 26, 2021 &ndash; Arman Boyacı</p>
+        <p class="byline">Nov 4, 2023 &ndash; Arman Boyacı</p>
     </header>
         <section>
 <p>
@@ -22,11 +23,37 @@ by asking in turn YES/NO questions about the (physical) attributes of the charac
 </p>
 
 <p>
-    The rational gameplay strategy is to ask 
-    a "halving" question. 
-    But if the opponent is ahead of us then 
-    we should ask a "riskier" question 
-    with a better best-case value.
+We would like to know which gameplay strategy is the best for this game? 
+Let's consider with the most intuitive one: asking question that eliminates half of the candidates. 
+
+Since we always eliminate half of the candidates then of course the expected 
+number of eliminated possibilities is 1/2.
+
+Is this the best we can do, what about other strategies, 
+for example what if we ask a question that splits the candidate list into \( \frac{N}{3}\) and \( \frac{N}{3}\) 
+where \(N\) is the number of total candidates.
+
+The expected number of eliminated candidates is
+
+$$ \frac{\frac{N}{3} \frac{2N}{3} + \frac{2N}{3} \frac{N}{3}}{N} $$ 
+
+which can be simplified to \( \frac{4N}{9} \), and that number is less than \( \frac{N}{2} \).
+
+The general formula for the expected number of eliminated candidates 
+if we ask splitting the list into \( \frac{N}{x}\) and \( 1 - \frac{N}{x}\) is 
+$$ \frac{ \frac{N}{x} \left( 1 - \frac{N}{x} \right) + \left( 1 - \frac{N}{x} \right) \frac{N}{x} } {N} $$
+when we simplify the terms we end up with: \( 2N \left( \frac{1}{x} - \frac{1}{x^2} \right) \).
+
+Then which number \(x\) number maximizes the expected value? 
+When we take the derivative with respect to \(x\) we get
+\( 2N \left( \frac{-1}{x^2} - \frac{-2}{x^3} \right) = 2N \left( \frac{2-x}{x^3} \right) \). 
+Then we have \( x^{\star} = 2 \) which verifies that our intuition at the beggining was right.
+
+
+<!--    
+The rational gameplay strategy is to ask a "halving" question. 
+But if the opponent is ahead of us then we should ask a "riskier" question 
+with a better best-case value.
 </p>
 
 <figure>
@@ -50,7 +77,7 @@ by asking in turn YES/NO questions about the (physical) attributes of the charac
     </table>
 </figure>
 
-
+-->
 
 <!--<p>
 In this game, each question can be seen as a set membership question: 
