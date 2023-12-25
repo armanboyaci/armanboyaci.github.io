@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+        <title>15 Puzzle</title>
+        <link rel="stylesheet" href="../../tufte.min.css"/>
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    </head>
+    <body>
+        <article>
+            <header>
+        <h1 class="title">15 Puzzle</h1>
+        <p class="byline">Dec 25, 2023 &ndash; Arman Boyacı</p>
+    </header>
+        <section>
+            <p> 
+                In this puzzle we have a 4x4 grid and tiles labeled 1 to 15. We use the remaining empty position to move the tiles. 
+                The aim is to arrange them in a numerical order (which is not always possible).
+            </p>
+        </section>
+
+        <section>
+            <p>
+                Let's talk about a possible solution strategy. We can easily place 1,2,5 and 6 in their correct position.
+                <img src="15puzzle-1256.png">
+
+                We need to be a little bit careful about the rest of the tiles. 
+                For example we can not simply put tile 3 in its correct place first and tile 4 later. 
+                We are going to put tiles 3 & 4 in one of the following positions then we can place them in their positions. 
+                <img src="15puzzle-34.png">
+                Suppose that tiles 3 & 4 are not in this position, then we can assume that they are in one of the following positions.
+                Consider 2x3 sub-grid containing these tiles, note that there are two 2x2 sub-grids: top and bottom. 
+                <img src="15puzzle-34-rotate.png">
+                First consider the bottom 2x2 sub-grid and rotate clockwise direction (anti-clockwise direction in the second case). 
+                We repeat the same rotation operation in the top 2x2 sub-grid. We can push tiles 3 & 4 up, this way we end up the desired positions.
+            </p>
+
+        </section>
+
+        </article>
+    </body>
+</html>
