@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+        <title>Tower of Hanoi</title>
+        <link rel="stylesheet" href="../../tufte.min.css"/>
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    </head>
+    <body>
+        <article>
+            <header>
+        <h1 class="title">Tower of Hanoi</h1>
+        <p class="byline">Jan 18, 2025 &ndash; Arman Boyacı</p>
+    </header>
+        <section>
+            <p> 
+              In this puzzle we have three rods and n disks of different sizes. 
+              At the beginning all disks are at the same rod in a decreasing order and the objective is to move all of them to another rod.
+              The only constraint is we can not place a bigger disk on top of a smaller disk.
+            </p>
+        </section>
+
+        <section>
+            <p>
+              The typical solution strategy for this puzzle is to use recursion. If we want to move the <em>n</em><sup>th</sup> disk to the target rod, 
+              we first need to move disks 1 through <em>n</em>-1 to the auxiliary rod. Once that is achieved, we can move the <em>n</em><sup>th</sup> disk 
+              to the target rod. As a final step, we move disks 1 through <em>n</em>-1 from the auxiliary rod to the target rod.
+            </p>
+
+            <p>
+              At this point, we can disregard the <em>n</em><sup>th</sup> disk, as it is already in place. With the remaining <em>n</em>-1 disks, we 
+              repeat the same strategy. However, we must be careful, as the starting rod for the <em>n</em>-1 disks has now changed, and the roles of 
+              the starting rod and the auxiliary rod are swapped. 
+            </p>
+
+          <p>
+              For the base case, when there is only one disk, we can simply move it to the target rod, as it is the smallest disk in the entire stack.
+          </p>
+
+            <pre>
+              <code class="language-python">
+                          def tower(n, source, target, auxalary):
+              if n == 1:
+                # "Move disk 1 from {source} to {target}"
+                move_list.append([1, source, target])
+              else:
+                tower(n-1, source, auxalary, target)
+                # "Move disk {n} from {source} to {target}"
+                move_list.append([n, source, target])
+                tower(n-1, auxalary, target, source)  
+              </code>
+            </pre>
+
+          
+        </section>
+
+        </article>
+    </body>
+</html>
