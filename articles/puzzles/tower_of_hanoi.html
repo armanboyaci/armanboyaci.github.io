@@ -40,15 +40,15 @@
 
             <pre>
               <code class="language-python">
-                          def tower(n, source, target, auxalary):
-              if n == 1:
-                # "Move disk 1 from {source} to {target}"
-                move_list.append([1, source, target])
-              else:
-                tower(n-1, source, auxalary, target)
-                # "Move disk {n} from {source} to {target}"
-                move_list.append([n, source, target])
-                tower(n-1, auxalary, target, source)  
+               def tower(n, source, target, auxalary):
+                  if n == 1:
+                     # "Move disk 1 from {source} to {target}"
+                     move_list.append([1, source, target])
+                  else:
+                     tower(n-1, source, auxalary, target)
+                     # "Move disk {n} from {source} to {target}"
+                     move_list.append([n, source, target])
+                     tower(n-1, auxalary, target, source)  
               </code>
             </pre>
 
