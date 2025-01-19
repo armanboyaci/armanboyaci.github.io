@@ -53,8 +53,66 @@ def tower(n, source, target, auxiliary):
         tower(n-1, auxiliary, target, source)  
               </code>
             </pre>
+    
+        </section>
 
-          
+        <section>
+            <p>
+                The moves of disks have special patterns. <em>i<sup>th</sup></em> disk moves <em>2<sup>n-i</sup></em> times. 
+                For instance the biggest disk will move once <em>2<sup>n-n<\sup></em> = 1. The smallest disk moves in every other time. 
+                The total number of moves is $$ \sum_{i=1}^n 2^{n-i} = 2^n -1 $$.
+            </p>
+
+            <p>
+                There is another interesting pattern. The disks are always moving on the same <em>direction</em>. Let's call three pegs as "A", "B" and "C".
+                A move from "A" to "B" (resp. "B" to "A") is a clockwise (resp. counter-clockwise) move. 
+            </p>
+
+            <table border="1">
+  <thead>
+    <tr>
+      <th>Disc</th>
+      <th>Orientation</th>
+      <th>From</th>
+      <th>To</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>Counter-Clockwise</td>
+      <td>16</td>
+      <td>16</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>Clockwise</td>
+      <td>8</td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>Counter-Clockwise</td>
+      <td>4</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>Clockwise</td>
+      <td>2</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>Counter-Clockwise</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+
+                    
+                    
         </section>
 
         </article>
