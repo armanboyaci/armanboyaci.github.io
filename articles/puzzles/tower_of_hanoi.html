@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
         <title>Tower of Hanoi</title>
         <link rel="stylesheet" href="../../tufte.min.css"/>
-        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      <!-- <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>-->
     </head>
     <body>
         <article>
@@ -107,7 +107,17 @@ def tower(n, source, target, auxiliary):
 
        <p>
         We use this observation to generate an iterative (instead of a recursive) algorithm.
-       </p>      
+       </p>
+       <pre>
+        <code>
+1. Move odd disks clockwise, even disks counterclockwise.
+2. Don’t move the same disk twice in a row.
+3. Larger disks can't be on smaller disks.
+        </code>
+       </pre>
+
+
+
         </section>
 
         </article>
