@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <meta name="author" content="Arman Boyacı">
+  <meta name="dcterms.date" content="2020-05-26">
+  <title>Exploration vs Exploitation</title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <link rel="stylesheet" href="../pandoc.css">
+  <link rel="stylesheet" href="../../tufte.min.css">
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<article>
+<header>
+<h1 class="title">Exploration vs Exploitation</h1>
+<p class="subtitle">Exploration is essential in machine learning settings where our decisions dictate the data we observe.</p>
+<p class="byline">May 10, 2025 &ndash; Arman Boyacı</p>
+</header>
+
+
+<section>
+In some machine learning settings, the data we observe depends on the actions we take, 
+creating a distinct challenge compared to typical supervised learning, where data is independent of the model’s behavior. 
+In these environments, the model must explore different actions while balancing 
+the trade-off between exploiting known good actions and discovering better ones. 
+Without sufficient exploration, the model may fail to maximize long-term total rewards which is typically the objective. 
+In this post, we compare some common exploration methods.
+</section>
+
+<section>
+Let’s consider two scenarios: a supply chain manager and a merchant. 
+The supply chain manager aims to maintain a balanced inventory to avoid out-of-stock situations, 
+while the merchant makes discount decisions to increase profit. 
+Both rely on demand estimations, but the key difference is that the merchant influences demand 
+through their discount decisions, i.e. different discount levels lead to different demand patterns. 
+In contrast, the supply chain manager’s replenishment decisions do not directly impact demand; 
+we can assume that the demand remains unchanged regardless of inventory decisions.
+</section>
+
+
+
+</article>
+</body>
