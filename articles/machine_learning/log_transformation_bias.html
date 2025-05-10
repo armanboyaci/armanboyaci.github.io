@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <meta name="author" content="Arman Boyacı">
+  <meta name="dcterms.date" content="2025-05-10">
+  <title>Log Transformation Bias</title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <link rel="stylesheet" href="../pandoc.css">
+  <link rel="stylesheet" href="../../tufte.min.css">
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<article>
+
+<header>
+<h1 class="title">Log Transformation Bias</h1>
+<p class="subtitle">pplying log transformation to the output variable introduces a bias.</p>
+<p class="byline">May 10, 2025 &ndash; Arman Boyacı</p>
+</header>
+
+<section>
+<p>
+When we apply a logarithmic transformation to the target variable and train a model, 
+the feature coefficients are generally estimated accurately, except for the intercept. 
+However, when we transform the predictions back to the original scale by exponentiating them, 
+the model often systematically underestimates the mean response. Another challenge is that the log of zero is undefined, 
+so we typically add a small constant to the target before applying the log. 
+This shift can also affect the model’s coefficients and predictions.    
+</p>
+</section>
+
+<section>
+<h2>Why do we apply log transformation?</h2>
+<p>
+One of the main reasons we apply a logarithmic transformation to the target variable is 
+to address issues with the structure of residuals in the original space. 
+In many real-world datasets, especially those involving multiplicative relationships, 
+the residuals tend to increase as the predicted values increase. 
+This violates a key assumption of linear regression that residuals should have constant variance (homoscedasticity) 
+and be independent of the predicted values. 
+By applying a log transformation, we stabilize the variance and make the residuals more homoscedastic and symmetric, 
+allowing the linear model to better satisfy its assumptions and produce more reliable estimates.
+</p>
+
+</section>
+
+<section>
+<p>
+However when we take the logarithm of the target variable and train a regression model, 
+the feature coefficients are usually accurate, but the intercept is not. 
+This happens because the model learns in log-space, where the relationship is linear. 
+However, when we convert the predictions back to the original scale by taking the exponential, 
+we often underestimate the average value. This is because the average of the log values, 
+when exponentiated, doesn’t equal the average of the original values. 
+The reason lies in the exponential function being non-linear, a concept explained by Jensen's inequality. 
+The more variation there is in the log-scale errors, the larger the underestimation.
+</p>
+
+<p>
+To build some intuition around this effect, consider a simple numerical experiment. 
+Suppose we generate a set of positive random numbers. We can compute the mean in two different ways: 
+(1) directly in the original space, and (2) by first taking the logarithm of the numbers, 
+calculating the mean in log-space, and then exponentiating that mean. 
+We’ll find that the second method consistently yields a lower value than the first. 
+This illustrates how transforming to and from log-space affects our estimates, 
+particularly when the data exhibit high variance.
+</p>
+</section>
+
+<section>
+<h2>Fix</h2>
+    <p>
+The expected value of log-normal distribution is not μ but μ + σ2/2 
+that is why we were underestimating the mean in the above example when we use exp(mean (log x)). 
+So we can fix this, we just need to add the half of the variance of the numbers in the log space.
+</p>
+
+<p>
+The caveat is that this “correction“ only works if the residuals of the model have a log-normal distribution.
+</p>
+
+<p>
+In the following example we consider a zero-inflated log-normal distribution. 
+And we see that this correction does not work as expected.
+</p>
+
+<p>
+In this example we chose the shift parameter (arbitrarily) as 1. 
+We may think that choosing a smaller value for the shift parameter could fix the issue:
+</p>
+
+<p>
+But it looks like that (at least for this example), the results are getting worse when we choose smaller shift parameter values. 
+Interestingly for big values we have better results. 
+More importantly it converges to the actual mean. 
+We can also observe that not only ‘corrected’ mean (black lines in the plots) are converging to the actual mean 
+but also the exp of arithmetic mean of log numbers (green lines in the plots)!
+</p>
+
+<p>
+Why is this happening? The zero-inflated distribution can be seen as a mixture of two distributions (bunch of zeros + normal distribution). 
+When we increase the shift parameter these two distributions approach to each other and eventually they merge:
+</p>
+
+<p>
+The catch is we don’t learn the “correct“ coefficients (in the log space).
+</p>
+
+</section>
+
+
+</article>
+</body>
