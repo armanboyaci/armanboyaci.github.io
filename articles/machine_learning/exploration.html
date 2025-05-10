@@ -34,7 +34,7 @@ In this post, we compare some common exploration methods.
 </p> 
 </section>
 
-<section>
+<section id="motivation">
 <p>
 Let’s consider two scenarios: a supply chain manager and a merchant. 
 The supply chain manager aims to maintain a balanced inventory to avoid out-of-stock situations, 
@@ -43,6 +43,75 @@ Both rely on demand estimations, but the key difference is that the merchant inf
 through their discount decisions, i.e. different discount levels lead to different demand patterns. 
 In contrast, the supply chain manager’s replenishment decisions do not directly impact demand; 
 we can assume that the demand remains unchanged regardless of inventory decisions.
+</p>
+
+<p>
+A merchant at a grocery chain can take many promotional actions: 
+adjusting the depth of the discount (e.g., 10%, 20%, up to 50%), setting the duration (e.g., 3 days), 
+controlling the frequency (e.g., every two weeks), 
+featuring the promotion in a weekly ad, and making the offer exclusive to loyalty card holders. 
+Seasonality may also play a role—for instance, customer responses to promotions can vary during the holidays. 
+</p>
+
+<p>
+If the merchant always uses the same discount strategy, she won’t know whether better alternatives exist. 
+Suppose there are 10 different actions; trying each one only once isn’t enough, as the outcomes are noisy. 
+The results of applying the same action over time form a distribution, and understanding this variability is essential 
+for making informed decisions.
+</p>
+
+</section>
+
+<section id=method">
+<p>
+A common approach to exploration is the epsilon-greedy strategy, which involves allocating an exploration budget. 
+The basic idea is that most of the time, we choose the action we believe is best. 
+However, occasionally, we select an action at random. 
+The parameter epsilon controls the probability of choosing a random action and effectively represents the exploration budget.
+</p>
+
+<p>
+Several methods have been proposed to enhance basic exploration strategies like epsilon-greedy. 
+Notable among them are optimistic initialization, the upper confidence bound (UCB) approach, and Thompson sampling.
+</p>
+
+<p>
+Optimistic initialization encourages exploration by initially assigning high estimated values to all actions, 
+prompting the agent to try them out before settling on the best one.
+</p>
+
+<p>
+UCB methods balance exploration and exploitation by selecting actions based not only on their estimated value 
+but also on the uncertainty or variance of that estimate—favoring actions with higher potential upside.
+</p>
+
+<p>
+Thompson sampling, on the other hand, is a Bayesian method that maintains a probability distribution over 
+the potential reward of each action and selects actions according to their likelihood of being optimal.
+</p>
+
+<p>
+In practice, both UCB and Thompson sampling have been shown to perform well, 
+often delivering similar results and outperforming simpler strategies like epsilon-greedy, 
+especially in environments where uncertainty and variability in outcomes are significant.
+</p>
+</section>
+
+<section>
+<p>
+In real-life scenarios, planners often take a different—and far less effective—approach compared to more advanced methods. 
+A common mistake is ignoring the stochastic nature of the system. 
+Instead of understanding the distribution of outcomes, they typically evaluate promotions one by one based on observed performance.
+To mimic this behavior, we can implement a naive exploration strategy: 
+continue applying the same action until it results in a negative profit, 
+then switch to a randomly selected alternative.
+</p>
+
+<p>
+I believe the exploration aspect is often overlooked in certain real-life machine learning applications, 
+even though it can have a significant impact. In this post, my goal was to highlight the importance of exploration. 
+When the action space is large and there are overlaps between actions, we can leverage that structure using more advanced methods. 
+Bayesian optimization is one such method, which I plan to cover in a future post.
 </p>
 </section>
 
