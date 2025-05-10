@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <meta name="author" content="Arman Boyacı">
+  <meta name="dcterms.date" content="2025-05-10">
+  <title>Modeling Seasonality</title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <link rel="stylesheet" href="../pandoc.css">
+  <link rel="stylesheet" href="../../tufte.min.css">
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<article>
+
+<header>
+<h1 class="title">Modeling Seasonality</h1>
+<p class="subtitle">Indicator variables are easy to interpret, and Fourier series are smooth; periodic splines offer the best of both.</p>
+<p class="byline">May 10, 2025 &ndash; Arman Boyacı</p>
+</header>
+
+<section>
+<p>
+Time-series data typically exhibit a seasonality component, which can be modeled in various ways. 
+Assuming we are using a linear regression model, the simplest approach is to include indicator variables for each month. 
+This method makes the coefficients easy to interpret, but the resulting pattern is not smooth. 
+Alternatively, Fourier terms can produce a smooth seasonal curve, though their coefficients are harder to interpret. 
+Periodic splines offer the best of both worlds; providing smoothness while retaining interpretability.
+</p>
+</section>
+
+</article>
+</body>
