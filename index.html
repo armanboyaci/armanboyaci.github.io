@@ -5,6 +5,20 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
         <title>Arman Boyacı, PhD</title>
         <link rel="stylesheet" href="tufte.min.css"/>
+        <script type="module">
+            import { annotate } from 'https://unpkg.com/rough-notation?module';
+            const n1 = document.querySelector('em');
+            //const n2 = document.querySelector('strong');
+            const n3 = document.querySelector('span');
+
+            const a1 = annotate(n1, { type: 'highlight', color: 'yellow', iterations: 5, padding: 30});
+            //const a2 = annotate(n2, { type: 'circle', color: 'red', padding: 10 });
+            const a3 = annotate(n3, { type: 'underline', color: 'blue' })
+
+            a1.show();
+            //a2.show();
+            a3.show();
+        </script>
     </head>
     <body>
         <article>
@@ -13,9 +27,16 @@
             <!--<p class="subtitle">Director at miks</p>-->
         </header>
             <section>
-                <p> My professional interest is building mathematical models 
-                    for various business planning problems. 
-                    Here, I share some models/algorithms for playing games, solving puzzles.
+                <p>I build <em id="e1">mathematical</em> models 
+                    to solve complex planning problems involving conflicting objectives and high uncertainty.
+                </p>
+                <p> 
+                    I've applied these models across <strong>Supply Chain</strong> (replenishment, routing, capacity planning), 
+                    <strong>Finance</strong> (investment strategies), and <strong>Marketing</strong> (pricing & promotion planning). 
+                    
+                <p>I focus on delivering transparent, 
+                    reliable AI solutions that drive measurable <span>business results</span>.
+                </p> 
             </section>
 
             <!--<section>
@@ -30,6 +51,18 @@
                 </ul>
             </section>-->
 
+            <section>
+                <p class="subtitle">✎ Technical Notes</p>
+                <ul>
+                    <li>Theory</li>
+                    <li>Business Applications</li>
+                    <li>Case Studies</li>
+                    <li>Fun Applications</li>
+                </ul>
+                
+            </section>
+
+            <!--
             <section>
                 <p class="subtitle">Playing Games</p>
                 <ul>
@@ -50,6 +83,8 @@
                     <li><a href="articles/puzzles/tower_of_hanoi.html">Tower of Hanoi</a></li>
                 </ul>
             </section>
+            -->
+            
 
             <!--<section>
                 <p class="subtitle">Running a Business</p>
