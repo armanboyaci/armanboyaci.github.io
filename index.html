@@ -4,36 +4,33 @@
         <meta http-equiv="Content-Type" content="text/html; charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
         <title>Arman Boyacı, PhD</title>
-        <link rel="stylesheet" href="https://unpkg.com/shorthandcss@1.1.1/dist/shorthand.min.css">
-        <link rel="stylesheet" href="https://unpkg.com/pattern.css">
+        <!--<link rel="stylesheet" href="https://unpkg.com/shorthandcss@1.1.1/dist/shorthand.min.css">
+        <link rel="stylesheet" href="https://unpkg.com/pattern.css">-->
         <link rel="stylesheet" href="tufte.min.css"/>
-        <style> body { background-color: #fffff8 !important; color: #111 !important;} </style>
         <script type="module">
             import { annotate } from 'https://unpkg.com/rough-notation?module';
             const n1 = document.querySelector('em');
-            //const n2 = document.querySelector('strong');
+            const n2 = document.querySelector('strong');
             const n3 = document.querySelector('span');
 
-            const a1 = annotate(n1, { type: 'highlight', color: 'yellow', iterations: 5, padding: 30});
-            //const a2 = annotate(n2, { type: 'circle', color: 'red', padding: 10 });
-            const a3 = annotate(n3, { type: 'underline', color: 'blue' })
+            const a1 = annotate(n1, { type: 'highlight', color: 'yellow', iterations: 5, padding: 30, multiline: true});
+            const a2 = annotate(n2, { type: 'circle', color: 'red', padding: 10, multiline: true });
+            const a3 = annotate(n3, { type: 'underline', color: 'blue', multiline: true })
 
             a1.show();
-            //a2.show();
+            a2.show();
             a3.show();
         </script>
     </head>
     <body>
         <article>
         <header>
-            
             <h1 class="title"> Arman Boyacı</h1>
-            <!--<p class="subtitle">Director at miks</p>-->
         </header>
         <section>
             <p class="pattern-cross-dots-lg bg-mint-lighter pink h-l3"></p>
-            <p>I build <em id="e1">mathematical</em> models 
-                to solve complex planning problems involving conflicting objectives and high uncertainty.
+            <p>I build <em id="e1">mathematical models</em>
+                to solve complex <strong>planning problems</strong> involving conflicting objectives and high uncertainty.
             </p>
             <p> 
                 I've applied these models across <strong>Supply Chain</strong> (replenishment, routing, capacity planning), 
@@ -45,6 +42,41 @@
         <p class="pattern-cross-dots-lg bg-mint-lighter pink h-l2"></p>
         </section>
 
+        <section>        
+            <h2>✎ Technical Notes</h2>
+        </section>
+        
+        <section>
+            <h3>Machine Learning</h3>
+            <ul>
+                <li><strong><a href="articles/machine_learning/exploration.html">Exploration</a> </strong> Exploration is essential in machine learning settings where our decisions dictate the data we observe.</li>
+                <li><strong><a href="articles/machine_learning/log_transformation_bias.html">Log Transformation Bias</a></strong> Applying log transformation to the output variable introduces a bias.</li>
+                <li><strong><a href="articles/machine_learning/seasonality.html">Modeling Seasonality</a></strong> Indicator variables are easy to interpret, and Fourier series are smooth; periodic splines offer the best of both.</li>
+            </ul>
+        </section>
+
+        <section>
+        <h3 class="subtitle">Playing Games</h3>
+        <ul>
+            <li><strong><a href="articles/games/tictactoe.html">Tic-Tac-Toe</a></strong> There are 12 unique ways to start. In 7 of them, the first player can always win with the right moves.</li>
+            <li><strong><a href="articles/games/blackjack.html">Blackjack</a></strong> The house always wins because if both the player and the dealer bust, the dealer still keeps the money.</li>
+            <li><strong><a href="articles/games/guesswho.html">Guess Who?</a></strong> The best move is to ask a question that splits the current board into two as evenly as possible.</li>
+            <li><strong><a href="articles/games/popit.html">Pop-it</a></strong> The player who breaks the symmetry loses; the opponent wins by restoring it.</li>
+            <li><strong><a href="articles/games/dotsandboxes.html">Dots and Boxes</a></strong> On a 3×3 grid, the first player can always win by following a specific strategy which involves a sacrifice.</li>
+        </ul>
+        </section>
+
+        <section>
+        <h3>Solving Puzzles</h3>
+        <ul>
+            <li><strong><a href="articles/puzzles/sudoku.html">Sudoku</a></strong> We present graph-theoretical interpretations of some popular Sudoku solving methods.</li>
+            <li><strong><a href="articles/puzzles/peg_solitaire.html">Peg Solitaire</a></strong> We present a method that forms a heart shape followed by a T-shape, making it easier to complete the puzzle.</li>
+            <li><strong><a href="articles/puzzles/15puzzle.html">15 Puzzle</a></strong> A simple solution method involves carefully rotating 2×2 or 3×3 blocks.</li>
+            <li><strong><a href="articles/puzzles/tower_of_hanoi.html">Tower of Hanoi</a></strong> You can solve the puzzle by moving odd-numbered disks left and even-numbered disks right.</li>
+        </ul>
+        </section>
+            
+         
             <!--<section>
                 <p class="subtitle">Managing Money</p>
                 <ul>
@@ -55,46 +87,7 @@
                     <li><a href="">Calculating the Market Value of a Portfolio over time using Python Pandas</a></li>
                     <li><a href="">The Bayesian Way of Combining Return Estimations</a></li>
                 </ul>
-            </section>-->
-
-       
-
-        <section>        
-            <h2 class="subtitle">✎ Technical Notes</h2>
-        </section>
-        
-        <section>
-            <p class="subtitle">Machine Learning</p>
-            <ul>
-                <li><a href="articles/machine_learning/exploration.html">Exploration</a></li>
-                <li><a href="articles/machine_learning/log_transformation_bias.html">Log Transformation Bias</a></li>
-                <li><a href="articles/machine_learning/seasonality.html">Modeling Seasonality</a></li>
-            </ul>
-        </section>
-
-
-        <section>
-            <p class="subtitle">Playing Games</p>
-            <ul>
-                <li><a href="articles/games/tictactoe.html">Tic-Tac-Toe</a></li>
-                <li><a href="articles/games/blackjack.html">Blackjack</a></li>
-                <li><a href="articles/games/guesswho.html">Guess Who?</a></li>
-                <li><a href="articles/games/popit.html">Pop-it</a></li>
-                <li><a href="articles/games/dotsandboxes.html">Dots and Boxes</a></li>
-            </ul>
-        </section>
-
-        <section>
-            <p class="subtitle">Solving Puzzles</p>
-            <ul>
-                <li><a href="articles/puzzles/sudoku.html">Sudoku</a></li>
-                <li><a href="articles/puzzles/peg_solitaire.html">Peg Solitaire</a></li>
-                <li><a href="articles/puzzles/15puzzle.html">15 Puzzle</a></li>
-                <li><a href="articles/puzzles/tower_of_hanoi.html">Tower of Hanoi</a></li>
-            </ul>
-        </section>
-            
-            
+            </section>-->   
 
             <!--<section>
                 <p class="subtitle">Running a Business</p>
