@@ -13,19 +13,20 @@
             const n2 = document.querySelector('strong');
             const n3 = document.querySelector('span');
 
-            const a1 = annotate(n1, { type: 'highlight', color: 'yellow', iterations: 5, padding: 30, multiline: true});
-            const a2 = annotate(n2, { type: 'circle', color: 'red', padding: 10, multiline: true });
-            const a3 = annotate(n3, { type: 'underline', color: 'blue', multiline: true })
+            const a1 = annotate(n1, { type: 'highlight', color: 'yellow', iterations: 2, padding: 30, multiline: true, animationDuration: 4000});
+            const a2 = annotate(n2, { type: 'circle', color: 'red', padding: 10, multiline: true, animationDuration: 4000 });
+            const a3 = annotate(n3, { type: 'underline', color: 'blue', multiline: true, animationDuration: 2000 })
 
             a1.show();
-            a2.show();
-            a3.show();
+            setTimeout(() => {a2.show();}, 2000);
+            setTimeout(() => {a3.show();}, 5000);
+
         </script>
     </head>
     <body>
         <article>
         <header>
-            <h1 class="title"> Arman Boyacı</h1>
+            <h1 class="title"> Arman Boyaci</h1>
         </header>
         <section>
             <p class="pattern-cross-dots-lg bg-mint-lighter pink h-l3"></p>
