@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <meta name="author" content="Arman Boyacı">
+  <meta name="dcterms.date" content="2025-05-10">
+  <title>Monotonic Constraints</title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <link rel="stylesheet" href="../pandoc.css">
+  <link rel="stylesheet" href="../../tufte.min.css">
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<article>
+
+<header>
+<h1 class="title">Monotonic Constraints</h1>
+<p class="subtitle">We explore ways to constrain coefficient values to be non-decreasing.</p>
+<p class="byline">May 18, 2025 &ndash; Arman Boyacı</p>
+</header>
+
+<section>
+<p>
+In some machine learning applications, it makes sense for certain inputs to have a monotonic effect on the output. 
+For example, we expect sales to decrease as price increases. 
+Linear regression can often capture this kind of relationship on its own, using ordinal variables. 
+But for models like decision trees or gradient boosting, we need to add monotonicity constraints 
+to make sure the model follows this expected pattern.
+</p>
+</section>
+
+<section>
+<p>
+In some cases, we know from experience that a certain input should always affect the result in one direction. 
+For example, we expect sales to go down when prices go up. 
+Flexible models might not always learn this from the data, especially if the data is noisy or limited. 
+Without rules, the model could show results that don’t make sense. 
+By adding monotonicity constraints, we guide the model to follow these rules. 
+This makes the model easier to understand and helps domain experts trust its predictions.
+</p>
+
+<p>
+A linear model follows monotonic relationships by default, but it can be too limited when the real-world relationship is non-linear.
+To address this, we can apply transformations like log, exponential, or polynomial functions. 
+These can help capture more complex patterns while still keeping the relationship monotonic.
+</p>
+
+<p>
+There are also other ways to model monotonic relationships. 
+Isotonic regression is a non-parametric method that fits a free-form monotonic function to the data. 
+Bayesian models can also be adapted using modeling tricks to encourage monotonicity, 
+such as applying constraints on the function shape or parameter ordering. 
+And many tree-based models, like XGBoost or LightGBM, allow monotonicity constraints to be set directly during training. 
+These options give us flexibility to choose the right balance between model complexity, interpretability, and domain alignment.
+</p>
+</section>
+
+<section>
+<p>
+Isotonic regression is a simple yet powerful method for modeling monotonic relationships. 
+It fits a non-decreasing (or non-increasing) function to the data without assuming a specific functional form. 
+This makes it flexible and easy to interpret. However, in practice—such as in the scikit-learn implementation, 
+it only supports one-dimensional inputs, which limits its use in more complex or high-dimensional problems.
+</p>
+
+<p>
+In Bayesian models, monotonicity can be encouraged through clever parameterization. 
+One common approach is to define the model coefficients as a cumulative sum of strictly non-negative increments. 
+For example, starting from a base coefficient, each additional coefficient is defined by adding a positive offset 
+drawn from a Half-Normal distribution. 
+This guarantees that each coefficient is greater than or equal to the previous one, enforcing a non-decreasing relationship. 
+This modeling trick allows us to build flexible, probabilistic models that respect monotonicity without needing to hard-code 
+the shape of the function.
+</p>
+
+<p>
+Tree-based models like XGBoost and LightGBM offer built-in support for monotonicity constraints. 
+By specifying which features should have a positive or negative effect on the output, 
+the algorithm builds trees that follow these rules during training.
+</p>
+</section>
+
+</article>
+</body>
