@@ -18,8 +18,8 @@
             const a3 = annotate(n3, { type: 'underline', color: 'blue', multiline: true, animationDuration: 2000 })
 
             a1.show();
-            setTimeout(() => {a2.show();}, 2000);
-            setTimeout(() => {a3.show();}, 5000);
+            setTimeout(() => {a2.show();}, 1000);
+            setTimeout(() => {a3.show();}, 3000);
 
         </script>
     </head>
@@ -44,38 +44,38 @@
         </section>
 
         <section>        
-            <h2>✎ Technical Notes</h2>
-        </section>
-        
-        <section>
-            <h3>Machine Learning</h3>
+        <h2>✎ Technical Notes</h2>
+
+        <h3>Machine Learning</h3>
+        <p>
             <ul>
-                <li><strong><a href="articles/machine_learning/exploration.html">Exploration</a> </strong> Exploration is essential in machine learning settings where our decisions dictate the data we observe.</li>
+                <li><strong><a href="articles/machine_learning/exploration.html">Exploration vs Exploration</a> </strong> Exploration is essential in machine learning settings where our decisions dictate the data we observe.</li>
                 <li><strong><a href="articles/machine_learning/log_transformation_bias.html">Log Transformation Bias</a></strong> Applying log transformation to the output variable introduces a bias.</li>
                 <li><strong><a href="articles/machine_learning/seasonality.html">Modeling Seasonality</a></strong> Indicator variables are easy to interpret, and Fourier series are smooth; periodic splines offer the best of both.</li>
                 <li><strong><a href="articles/machine_learning/monotonic.html">Monotonic Constraints</a></strong> We explore ways to constrain coefficient values to be non-decreasing.</li>
             </ul>
-        </section>
+        </p>
 
-        <section>
         <h3 class="subtitle">Playing Games</h3>
+        <p>
         <ul>
             <li><strong><a href="articles/games/tictactoe.html">Tic-Tac-Toe</a></strong> There are 12 unique ways to start. In 7 of them, the first player can always win with the right moves.</li>
             <li><strong><a href="articles/games/blackjack.html">Blackjack</a></strong> The house always wins because if both the player and the dealer bust, the dealer still keeps the money.</li>
             <li><strong><a href="articles/games/guesswho.html">Guess Who?</a></strong> The best move is to ask a question that splits the current board into two as evenly as possible.</li>
             <li><strong><a href="articles/games/popit.html">Pop-it</a></strong> The player who breaks the symmetry loses; the opponent wins by restoring it.</li>
             <li><strong><a href="articles/games/dotsandboxes.html">Dots and Boxes</a></strong> On a 3×3 grid, the first player can always win by following a specific strategy which involves a sacrifice.</li>
-        </ul>
-        </section>
+        </ul> 
+        </p>
 
-        <section>
         <h3>Solving Puzzles</h3>
+        <p>
         <ul>
             <li><strong><a href="articles/puzzles/sudoku.html">Sudoku</a></strong> We present graph-theoretical interpretations of some popular Sudoku solving methods.</li>
             <li><strong><a href="articles/puzzles/peg_solitaire.html">Peg Solitaire</a></strong> We present a method that forms a heart shape followed by a T-shape, making it easier to complete the puzzle.</li>
             <li><strong><a href="articles/puzzles/15puzzle.html">15 Puzzle</a></strong> A simple solution method involves carefully rotating 2×2 or 3×3 blocks.</li>
             <li><strong><a href="articles/puzzles/tower_of_hanoi.html">Tower of Hanoi</a></strong> You can solve the puzzle by moving odd-numbered disks left and even-numbered disks right.</li>
-        </ul>
+        </ul>        
+        </p>
         </section>
             
          

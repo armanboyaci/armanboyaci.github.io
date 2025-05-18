@@ -33,5 +33,37 @@ Periodic splines offer the best of both worlds; providing smoothness while retai
 </p>
 </section>
 
+<section>
+<p>
+Seasonal patterns are very common in many business applications. 
+They reflect recurring fluctuations in data that repeat over fixed periods, such as days, weeks, or years. 
+Recognizing and modeling these patterns can significantly improve forecasting accuracy and interpretation.
+</p>
+
+<p>
+To effectively incorporate seasonality into models, we can use: 
+(1) Indicator (Dummy) Variables, (2) Fourier Terms or (3) Periodic Splines
+</p>
+
+<h2>Indicator (Dummy) Variables</h2>
+<p>
+Add binary flags for known periods like weekends, holidays, or specific months. 
+Simple and interpretable, but limited to fixed, known cycles.
+</p>
+
+<h2>Fourier Terms</h2>
+<p>
+Approximate seasonal patterns with sine and cosine terms, capturing   complex and smooth cycles.
+Especially useful for long-term or multiple overlapping seasonalities (e.g., daily and yearly).
+</p>
+
+<h2>Periodic Splines</h2>
+<p>
+Flexible, smooth curves that can adapt to non-linear seasonal patterns.
+Offer a good balance between flexibility and interpretability.
+</p>
+
+</section>
+
 </article>
 </body>
