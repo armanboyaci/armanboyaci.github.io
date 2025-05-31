@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <meta name="author" content="Arman Boyacı">
+  <meta name="dcterms.date" content="2025-05-31">
+  <title>Non-Negative Coefficients</title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <link rel="stylesheet" href="../pandoc.css">
+  <link rel="stylesheet" href="../../tufte.min.css">
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<article>
+
+<header>
+<h1 class="title">Non-Negative Coefficients</h1>
+<p class="subtitle">What are my options for enforcing some of the coefficients to be non-negative?</p>
+<p class="byline">May 31, 2025 &ndash; Arman Boyacı</p>
+</header>
+
+<section>
+<p>
+When using linear models from the <code>scikit-learn</code> library, we can specify positivity constraints.
+However, this forces <em>all</em> coefficients to be non-negative.
+Recently, I discovered a trick to relax this constraint for certain coefficients.
+</p>
+</section>
+
+<section>
+<p>
+Before talking about the trick, let's explore the other alternatives.
+We can call <code>lsq_linear</code> function from <code>scipy</code>, 
+which allows us to define arbitrary lower and upper bounds. So it is very flexible in that sense. 
+However we don't have the regularization component, the objective function and the constraints are in the following form:
+<code>
+
+minimize 0.5 * ||A x - b||**2
+subject to lb <= x <= ub
+
+</code>
+</p>
+
+<p>
+Of course, we can go even further and use the <code>minimize</code> function to optimize an arbitrary objective.
+This allows us to add regularization terms, and since the function accepts bounds so we can achieve our initial goal.
+</p>
+</section>
+
+<section>
+<h2>The Trick</h2>
+<p>
+<p>
+For every coefficient where you want to relax the non-negativity constraint,  
+simply introduce the negative of the corresponding feature vector.
+Let w1 and w2 be the coefficients corresponding to the original feature and its negative, respectively.
+The final result we report will be w1 - w2.
+</p>
+</section>
+
+
+</article>
+</body>
+</html>
