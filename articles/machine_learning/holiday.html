@@ -5,11 +5,12 @@
   <meta name="generator" content="pandoc">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
   <meta name="author" content="Arman Boyacı">
-  <meta name="dcterms.date" content="2025-05-10">
+  <meta name="dcterms.date" content="2025-07-03">
   <title>Modeling Holiday Seasonality Demand</title>
   <style type="text/css">code{white-space: pre;}</style>
   <link rel="stylesheet" href="../pandoc.css">
   <link rel="stylesheet" href="../../tufte.min.css">
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
   <!--[if lt IE 9]>
     <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
   <![endif]-->
@@ -20,7 +21,7 @@
 
 <header>
 <h1 class="title">Modeling Holiday Seasonality Demand</h1>
-<p class="subtitle">Demand builds up before the holiday and then drops suddenly; the decay rate can vary by product, which we want to learn from data.</p>
+<p class="subtitle">Demand builds up before the holiday and then drops suddenly; the decay rate can vary by product.</p>
 <p class="byline">Jul 3, 2025 &ndash; Arman Boyacı</p>
 </header>
 
@@ -40,12 +41,11 @@ In some applications, the demand model should capture this behavior, and we want
 <section>
 <p>
 One way to model this behavior is to use a negative exponential decay function, such as:
-demand∝e−αx\text{demand} \propto e^{-\alpha x}demand∝e−αx
-where α\alphaα is the decay parameter controlling how fast demand drops after the peak.
+\( \text{demand} \propto e^{-\alpha x} \) where \( \alpha \) is the decay parameter controlling how fast demand drops after the peak.
 </p>
 
 <p>
-When using a linear regression model, we can include multiple features with different α values representing different decay speeds. 
+When using a linear regression model, we can include multiple features with different \( \alpha \) values representing different decay speeds. 
 The model then learns from data which decay parameters best explain the observed demand.
 </p>
 
