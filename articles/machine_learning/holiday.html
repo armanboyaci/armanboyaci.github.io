@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <meta name="author" content="Arman Boyacı">
+  <meta name="dcterms.date" content="2025-05-10">
+  <title>Modeling Holiday Seasonality Demand</title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <link rel="stylesheet" href="../pandoc.css">
+  <link rel="stylesheet" href="../../tufte.min.css">
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+
+<body>
+<article>
+
+<header>
+<h1 class="title">Modeling Holiday Seasonality Demand</h1>
+<p class="subtitle">Demand builds up before the holiday and then drops suddenly; the decay rate can vary by product, which we want to learn from data.</p>
+<p class="byline">Jul 3, 2025 &ndash; Arman Boyacı</p>
+</header>
+
+<section>
+<p>
+There is no question that holidays are very critical for retailers. 
+The National Retail Federation (NRF) even has a dedicated page for holiday trends 
+covering occasions like Christmas, Easter, and St. Patrick’s Day. 
+More broadly, it also tracks other important events such as Mother’s Day, Valentine’s Day, and the Super Bowl. 
+Intuitively, we can guess that each holiday may impact different products to different degrees. 
+One often overlooked aspect is that in certain cases, demand builds up before the holiday and then drops off suddenly afterward; 
+the rate of decay can vary by product. 
+In some applications, the demand model should capture this behavior, and we want to learn it from data.
+</p>
+</section>
+
+<section>
+<p>
+One way to model this behavior is to use a negative exponential decay function, such as:
+demand∝e−αx\text{demand} \propto e^{-\alpha x}demand∝e−αx
+where α\alphaα is the decay parameter controlling how fast demand drops after the peak.
+</p>
+
+<p>
+When using a linear regression model, we can include multiple features with different α values representing different decay speeds. 
+The model then learns from data which decay parameters best explain the observed demand.
+</p>
+
+<p>
+Alternatively, we can build a custom optimization model that directly estimates the optimal decay parameters 
+by minimizing forecasting errors, providing more tailored control.
+</p>
+
+<p>
+A third approach is to approximate the decay by combining two exponential features with distinct α values and learn a 
+weighted average between them. While this is an approximation, it can perform well in many practical scenarios and 
+offers a good balance between complexity and accuracy.
+</p>
+</section>
+
+</article>
+</body>
+
+</html>
