@@ -136,6 +136,48 @@ which is strictly greater than staying ($\frac{1}{3}$).
 <h3>Computer Simulation</h3>
 <p>
 
+<pre>
+              <code class="language-python">
+
+import numpy as np
+import random
+import matplotlib.pyplot as plt
+
+def extensive_test(tries,switch):    # bool switch-says weather to switch or not
+  ctr=0
+  ans=[]
+  for i in range(tries):
+    arr=[0,0,0]
+    car_pos=random.randint(0,2)   
+    arr[car_pos]=1              # making a random arrangement of two goats (0) and one car (1)
+    nums=[0,1,2]
+    initial_selection=random.randint(0,2)  # making a random initial selection
+    nums.remove(initial_selection)
+    for j in nums:
+      if(arr[j]==0):
+        nums.remove(j)                    # opening one of the 2 remaining doors that hides a goat
+        break
+    if(switch):                       # in case of switching change selection to other door
+      selection=nums[0]
+    else:
+      selection=initial_selection       # otherwise sticking to the same door
+    if(arr[selection]==1):
+      ctr+=1
+    ans.append(ctr)
+  return ans
+  
+size=10000
+switch=extensive_test(size,True)
+noswitch=extensive_test(size,False)
+
+plt.plot(list(range(size)),switch)
+plt.plot(list(range(size)),noswitch)
+plt.axis([0,size,0,size])
+plt.xlabel("number of tries")
+plt.ylabel("number of wins")
+              </code>
+            </pre>
+
 </p>
 </section>
 
