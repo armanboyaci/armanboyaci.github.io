@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <meta name="author" content="Arman Boyacı">
+  <meta name="dcterms.date" content="2025-05-10">
+  <title>Monty Hall</title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <link rel="stylesheet" href="../pandoc.css">
+  <link rel="stylesheet" href="../../tufte.min.css">
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+
+<body>
+<article>
+
+<header>
+<h1 class="title">Monty Hall</h1>
+<p class="subtitle">Use the extra information properly for the optimal decision.</p>
+<p class="byline">Feb 14, 2025 &ndash; Arman Boyacı</p>
+</header>
+
+<section>
+<p>
+Monty Hall problem is the following: there are three doors, one contains a car and other two contain goats.
+As a contestent, we choose one door. The host, who knows which door has the car, reveals one of the remaining doors that contain a goat and offers a choice:
+We can either stick with our initial choice or switch to the other unopened door. 
+</p>
+
+<p>
+What should we do?
+</p>
+</section>
+
+<section>
+<p>
+Most people who encounter this problem decide to stick with their initial choice. 
+The main reason is they think there are two remaining doors, and since the probabilities were initially were equal, nothing has changed after the host reveals one door.
+</p>
+
+<p>
+They assume there is a 50-50 chance of winning. Psycologically, it also feels worse to switch and lose than to stick and lose.
+</p> 
+
+</section>
+
+<section>
+<p>
+This reasoning is incorrect. We will show in three different ways that switcing is the better strategy:
+<ol>
+    <li>Proof by a <em>story</em></li>
+    <li>Proof using the law of total probabilities</li>
+    <li>A computer simulation</li>
+</ol>
+</p>
+</section>
+
+<section>
+<h3>Proof by a Story</h3>
+<p>
+
+</p>
+</section>
+
+<section>
+<h3>Mathematical Proof</h3>
+<p>
+Without loss of generality, assume we initially picked Door 1. 
+Let $I_1$ denote this information.
+</p>
+
+<p>Define:</p>
+<ul>
+  <li>$S$: success by switching</li>
+  <li>$D_j$: Door $j$ contains the car</li>
+</ul>
+
+<p>
+Using the law of total probability:
+</p>
+
+$$
+P(S \mid I_1) =
+P(S \mid D_1, I_1)P(D_1)
++
+P(S \mid D_2, I_1)P(D_2)
++
+P(S \mid D_3, I_1)P(D_3)
+$$
+
+<p>Evaluate each term:</p>
+
+<ul>
+  <li>If the car is behind Door 1, switching loses:
+  $$P(S \mid D_1, I_1) = 0$$
+  </li>
+
+  <li>If the car is behind Door 2, switching wins:
+  $$P(S \mid D_2, I_1) = 1$$
+  </li>
+
+  <li>If the car is behind Door 3, switching wins:
+  $$P(S \mid D_3, I_1) = 1$$
+  </li>
+</ul>
+
+<p>
+Since each door initially has probability $\frac{1}{3}$:
+</p>
+
+$$
+P(S \mid I_1)
+=
+0 \cdot \frac{1}{3}
++
+1 \cdot \frac{1}{3}
++
+1 \cdot \frac{1}{3}
+=
+\frac{2}{3}
+$$
+
+<p>
+Therefore, switching yields a winning probability of $\frac{2}{3}$,
+which is strictly greater than staying ($\frac{1}{3}$).
+</p>
+
+</section>
+
+<section>
+<h3>Computer Simulation</h3>
+<p>
+
+</p>
+</section>
+
+
+</article>
+</body>
