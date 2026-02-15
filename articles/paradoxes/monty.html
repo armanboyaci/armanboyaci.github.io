@@ -61,23 +61,25 @@ This reasoning is incorrect. We will show in three different ways that switcing 
 </section>
 
 <section>
-<h3>Proof by a Story</h3>
+<h2>Story Proof</h2>
 <p>
-
+If we were allowed to pick two doors at the start, our probability of winning would be 2/3. 
+While the rules do not permit choosing two doors outright, host's elimination of one unselected door effectively fivues that opportunity. 
+Switcing is equivalant to having bet on the two doors we did not originally choose.
 </p>
 </section>
 
 <section>
-<h3>Mathematical Proof</h3>
+<h2>Mathematical Proof</h2>
 <p>
 Without loss of generality, assume we initially picked Door 1. 
-Let $I_1$ denote this information.
+Let $$I_1$$ denote this information.
 </p>
 
 <p>Define:</p>
 <ul>
-  <li>$S$: success by switching</li>
-  <li>$D_j$: Door $j$ contains the car</li>
+  <li>$$S$$: success by switching</li>
+  <li>$$D_j$$: Door $$j$$ contains the car</li>
 </ul>
 
 <p>
@@ -110,7 +112,7 @@ $$
 </ul>
 
 <p>
-Since each door initially has probability $\frac{1}{3}$:
+Since each door initially has probability $$\frac{1}{3}$$:
 </p>
 
 $$
@@ -126,14 +128,14 @@ P(S \mid I_1)
 $$
 
 <p>
-Therefore, switching yields a winning probability of $\frac{2}{3}$,
-which is strictly greater than staying ($\frac{1}{3}$).
+Therefore, switching yields a winning probability of $$\frac{2}{3}$$,
+which is strictly greater than staying ($$\frac{1}{3}$$).
 </p>
 
 </section>
 
 <section>
-<h3>Computer Simulation</h3>
+<h2>Computer Simulation</h2>
 <p>
 
 <pre>
