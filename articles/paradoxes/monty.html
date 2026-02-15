@@ -13,16 +13,14 @@
   <!--[if lt IE 9]>
     <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
   <![endif]-->
-  <script type="text/x-mathjax-config">
-    MathJax = {
+    <script>
+    window.MathJax = {
     tex: {
-        inlineMath: {'[+]': [['$', '$']]}
-    },
-    svg: {
-        fontCache: 'global'
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']]
     }
     };
-</script>
+    </script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 
@@ -89,7 +87,7 @@ Let $I_1$ denote this information.
 <p>Define:</p>
 <ul>
   <li>$S$: success by switching</li>
-  <li>$D_j$: Door $$j$$ contains the car</li>
+  <li>$D_j$: Door $j$ contains the car</li>
 </ul>
 
 <p>
