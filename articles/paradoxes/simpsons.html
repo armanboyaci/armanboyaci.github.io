@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <meta name="author" content="Arman Boyacı">
+  <meta name="dcterms.date" content="2026-04-25">
+  <title>Simpson's Paradox</title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <link rel="stylesheet" href="../pandoc.css">
+  <link rel="stylesheet" href="../../tufte.min.css">
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+    <script>
+    window.MathJax = {
+    tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']]
+    }
+    };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/prismjs/themes/prism.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/prismjs/prism.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs/components/prism-python.min.js"></script>
+    <style> 
+      pre code {width: 80%;} 
+    </style>
+</head>
+
+<body>
+<article>
+
+<header>
+<h1 class="title">Simpson's Paradox</h1>
+<p class="subtitle">Aggregated metrics can lead to confidence, but completely wrong, decisions.</p>
+<p class="byline">Apr 25, 2026 &ndash; Arman Boyacı</p>
+</header>
+
+<section>
+<h2>A Minimal Example</h2>
+<p>A: ●●○○○ → 2/5 = 40%</p>
+<p>B: ●●●○○ → 3/5 = 60%</p>
+<p><strong>Conclusion:</strong> B looks better than A.</p>
+
+<p><strong>Group 1</strong></p>
+<p>A₁: ● → 1/1 = 100%</p>
+<p>B₁: ●●●○ → 3/4 = 75%</p>
+
+<p><strong>Group 2</strong></p>
+<p>A₂: ●○○○ → 1/4 = 25%</p>
+<p>B₂: ○ → 0/1 = 0%</p>
+
+<p><strong>Now A is better in both groups.</strong></p>
+
+</section>
+
+<section>
+<h2>The Root Cause</h2>
+<p>The root cause of Simpson’s paradox is a <strong>confounder variable</strong>.</p>
+</section>
+
+
+</article>
+</body>
